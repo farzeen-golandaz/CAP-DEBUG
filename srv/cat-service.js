@@ -14,5 +14,7 @@ module.exports = class CatalogService extends cds.ApplicationService { init() {
   })
 
 
+
+  
   return super.init()
 }}
