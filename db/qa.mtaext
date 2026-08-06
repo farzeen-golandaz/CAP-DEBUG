@@ -1,0 +1,10 @@
+ _schema-version: "3.3.0"
+ID: cap-debugging-qa-ext
+extends: cap-debugging
+version: 1.0.0
+
+resources:
+  - name: cap-debugging-auth
+    parameters:
+      config:
+        xsappname: cap-debugging-qa-xsapp
