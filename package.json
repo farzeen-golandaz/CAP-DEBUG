@@ -4,6 +4,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
+    "@sap/cds-common-content": "^3.2.0",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
