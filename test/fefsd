@@ -1,12 +1,1 @@
-API Endpoint:
-https://api.cf.us10-003.hana.ondemand.com
-Org Name:
-e127421btrial
-Org ID:
-72bff6af-fa68-4eae-b1cc-ec2e90cfe472
-Space:
-dev
-
-
-
-https://deploy-service.cfapps.us10-001.hana.ondemand.com/slprot/e127421btrial_prod-59ak0qbf/SpacePROD/slp
+https://community.sap.com/t5/technology-blog-posts-by-members/how-to-implement-alert-notification-service-in-cloud-application/ba-p/14111080

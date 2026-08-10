@@ -28,7 +28,7 @@ modules:
       - name: cap-debugging-db
       - name: cap-debugging-connectivity
       - name: cap-debugging-destination
-
+      - name: Cloud_logging
   - name: cap-debugging-db-deployer
     type: hdb
     path: gen/db
@@ -90,3 +90,8 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+  - name: Cloud_logging
+    type: org.cloudfoundry.existing-service
+    parameters:
+     service: application-logs
+     service-name: Cloud_logging
