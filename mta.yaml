@@ -91,7 +91,8 @@ resources:
       service: destination
       service-plan: lite
   - name: Cloud_logging
-    type: org.cloudfoundry.existing-service
+    type: org.cloudfoundry.managed-service
     parameters:
      service: application-logs
      service-name: Cloud_logging
+     service-plan: lite
