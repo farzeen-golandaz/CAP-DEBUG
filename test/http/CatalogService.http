@@ -1,0 +1,33 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+
+
+### sendTestAlert
+# @name sendTestAlert_POST
+POST {{server}}/Email_Alert_SRV/postAlert
+Content-Type: application/json
+//Authorization: Basic {{username}}:{{password}}
+
+{
+  "payload": {
+    "eventType": "warning",
+    "resource": {
+      "resourceName": "cap-debugging-srv",
+      "resourceType": "application",
+      "tags": {
+        "env": "dev",
+        "module": "cap-debugging"
+      }
+    },
+    "severity": "ERROR",
+    "category": "ALERT",
+    "subject": "Test alert via CAP action",
+    "body": "Triggered through CAP srv, not direct ANS call",
+    "tags": {
+      "customTag": "orderProcessing"
+    }
+  }
+}

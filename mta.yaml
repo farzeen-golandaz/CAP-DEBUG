@@ -25,16 +25,10 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: cap-debugging-auth
-      - name: cap-debugging-db
       - name: cap-debugging-connectivity
       - name: cap-debugging-destination
       - name: Cloud_logging
-  - name: cap-debugging-db-deployer
-    type: hdb
-    path: gen/db
-    parameters:
-      buildpack: nodejs_buildpack
-    requires:
+      - name: alert-srv
       - name: cap-debugging-db
   - name: cap-debugging
     type: approuter.nodejs
@@ -56,6 +50,13 @@ modules:
         properties:
           app-protocol: ${protocol}
           app-uri: ${default-uri}
+  - name: cap-debugging-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: cap-debugging-db
 
 resources:
   - name: cap-debugging-auth
@@ -75,11 +76,6 @@ resources:
             - https://*~{app-api/app-uri}/**
     requires:
       - name: app-api
-  - name: cap-debugging-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
   - name: cap-debugging-connectivity
     type: org.cloudfoundry.managed-service
     parameters:
@@ -93,6 +89,17 @@ resources:
   - name: Cloud_logging
     type: org.cloudfoundry.managed-service
     parameters:
-     service: application-logs
-     service-name: Cloud_logging
-     service-plan: lite
+      service: application-logs
+      service-name: Cloud_logging
+      service-plan: lite
+  - name: alert-srv
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: alert-notification
+      service-name: alert-srv
+      service-plan: standard
+  - name: cap-debugging-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
